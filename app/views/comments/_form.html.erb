@@ -1,0 +1,12 @@
+<div id="comments_form_<%=comment.commentable.id%>">
+  <%= form_for([comment.commentable, comment]) do | f | %>
+    <%= f.hidden_field :parent_id %>
+
+    <div >
+      <p>
+        <%= f.text_field :content %>
+        <%= f.submit %>
+      </p>
+    </div>
+  <% end %>
+</div>
