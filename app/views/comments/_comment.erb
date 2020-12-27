@@ -5,10 +5,9 @@
 
   <div>
     <%= comment.user.email %> &bull;
-    <%= localize(comment.created_at, format: :long) %> &bull;
-    <%= link_to "Edit", edit_polymorphic_path([comment.commentable, comment]), class: 'edit-comment-link' %> &bull;
-    <%= link_to "Destroy", [comment.commentable, comment], method: :delete, class: 'delete-comment-link' %> &bull;
-    <%= link_to "Reply", polymorphic_path([:reply, comment.commentable, comment]), class: 'reply-comment-link' %>
+
+    <%= render partial: 'comments/form', locals: { commentable: comment.commentable, parent_id: comment.id } %>
+
   </div>
 
   <div>

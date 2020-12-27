@@ -1,6 +1,6 @@
 <ul id="comments_list_<%=@post.id%>">
 <% if @post.comments.size > 0 %>
-  <%= render @post.comments.where(parent: nil) %>
+  <%= render @post.comments.where(parent_id: nil) %>
   <!-- 이 내용이 없으면 recursion이 생기면서 댓글이 중복되는 현상이 벌어진다...-->
 <% else %>
   <li>

@@ -6,6 +6,6 @@
     <%= render "comments/list" %>
   </div>
   <div class='comments_form'>
-    <%= render "comments/form", comment: @post.comments.new %>
+    <%= render partial: "comments/form", locals: { commentable: @post } %>
   </div>
 </div>

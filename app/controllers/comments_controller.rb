@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: [ :reply, :edit, :update, :destroy ]
 
   def reply
-    @reply = @commentable.comments.build(parent: @comment)
+    # @reply = @commentable.comments.build(parent: @comment)
   end
 
   def create
@@ -68,5 +68,9 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:content, :parent_id)
+  end
+
+  def comments
+    Comment.where(commentable: commentable, parent_id: id)
   end
 end
